@@ -1,0 +1,41 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px 20px 40px;
+    background-color: white;
+    box-shadow: 0px 0px 8px 0px;
+}
+
+.header_buttons{
+    display: flex;
+    gap: 20px;
+}
+
+.header_button{
+    background-color: inherit;
+    height: 30px;
+    border: solid white 2px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.09s;
+}
+
+.header_button:hover{
+    color: rgb(7, 27, 211);
+    border: solid rgb(7, 27, 211) 2px;
+    border-radius: 5px;
+}
+
+.logo:hover{
+    color: rgb(7, 27, 211);
+    font-size: 17.5px;
+    transition: 0.08s;
+}
+
+.logo{
+    cursor: pointer;
+    font-size: 17px;
+    transition: 0.08s;
+    text-decoration: none;
+}

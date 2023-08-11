@@ -1,0 +1,57 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px 15px 40px;
+  background-color: white;
+  box-shadow: 0px 0px 8px 0px;
+}
+
+.header_buttons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header_button {
+  background-color: inherit;
+  height: 30px;
+  border: solid white 2px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.09s;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: max-content;
+  min-width: 60px;
+  padding: 0 5px 0 5px;
+}
+
+.header_button:hover {
+  color: rgb(7, 27, 211);
+  border: solid rgb(7, 27, 211) 2px;
+  border-radius: 5px;
+}
+
+.logo:hover {
+  color: rgb(7, 27, 211);
+}
+
+.logo {
+  cursor: pointer;
+  font-size: 18px;
+  background-color: inherit;
+  border: none;
+  text-decoration: none;
+}
+
+.userData {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  font-size: 16px;
+}
