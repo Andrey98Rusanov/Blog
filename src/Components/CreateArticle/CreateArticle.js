@@ -1,24 +1,29 @@
 import { Input, Button, Form } from "antd";
 import Api from "../../Api/Api";
+import Loader from "../UI-Component/Loader";
 import styles from "./createArticle.module.css";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 function CreateArticle() {
   const api = new Api();
   const dispatch = useDispatch();
+  const isLoad = useSelector(state => state.isLoad)
   const navigate = useNavigate();
   const { TextArea } = Input;
   const onFinish = (values) => {
-    api.createArticle(values).then(() => {
+    dispatch({type: "LOAD_CHANGE", payload: true})
+    api.createArticle(values).then((article) => {
       api.getArticles(1).then((articles) => {
         dispatch({ type: "ADD_ARTICLES", payload: articles });
         dispatch({ type: "ADD_TOTAL", payload: articles });
-        navigate("/");
+        dispatch({type: "LOAD_CHANGE", payload: false})
+        navigate(`/articles/${article.article.slug}`);
       });
     });
   };
 
   return (
+    isLoad ? <Loader/> :
     <Form
       name="basic"
       className={styles.new_article}

@@ -32,7 +32,6 @@ const EditProfileForm = () => {
   const onFinish = (values) => {
     dispatch({ type: "LOAD_CHANGE", payload: true });
     api.editUserAccount(values).then((res) => {
-      console.log(res);
       dispatch({ type: "ADD_USER", payload: res.user });
       dispatch({ type: "LOAD_CHANGE", payload: false });
       navigate("/");

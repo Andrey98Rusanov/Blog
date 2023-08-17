@@ -12,7 +12,6 @@ export default class Api extends Component {
       },
     );
     const articles = await propmiseArticles.json();
-    console.log(articles);
     return articles;
   }
 

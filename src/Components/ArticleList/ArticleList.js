@@ -36,7 +36,7 @@ function ArticleList() {
     articleList.push(
       <div key={key} className="article">
         <div>
-          <Link to={`/${el.slug}`} className="title">
+          <Link to={`/articles/${el.slug}`} className="title">
             {el.title.slice(0, 50)}
           </Link>
           {logIn ? (

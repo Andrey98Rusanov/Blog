@@ -8,6 +8,7 @@ import Api from "../../Api/Api";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "antd";
+import DeleteArticleButton from "../UI-Component/DeleteArticleButton";
 import { Link } from "react-router-dom";
 
 function Article() {
@@ -51,7 +52,7 @@ function Article() {
       });
     });
   };
-  const onEditClick = (n) => {};
+  const onEditClick = () => {navigate(`/${slug}/edit-article`)};
   if (article)
     return isLoad ? (
       <Loader />
@@ -113,17 +114,12 @@ function Article() {
               gap: "10px",
             }}
           >
-            <Button style={{ color: "blue", borderColor: "blue" }}>
-              <Link
-                to={`/${slug}/edit-article`}
-                onClick={() => onEditClick(article.author.username)}
-              >
+            <Button style={{ color: "blue", borderColor: "blue" }} onClick={() => onEditClick(article.author.username)}>
                 Edit
-              </Link>
             </Button>
-            <Button danger onClick={() => onDeleteClick(slug)}>
+            <DeleteArticleButton danger onDeleteClick={onDeleteClick} slug={slug}>
               Delete
-            </Button>
+            </DeleteArticleButton>
           </div>
         ) : null}
       </div>

@@ -1,5 +1,6 @@
 import { Input, Button, Form } from "antd";
 import Api from "../../Api/Api";
+import Loader from "../UI-Component/Loader";
 import styles from "./createArticle.module.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,19 +9,23 @@ function EditArticleForm() {
   const { slug } = useParams();
   const currentArticle = useSelector((state) => state.currentArticle);
   const page = useSelector((state) => state.page);
+  const isLoad = useSelector(state => state.isLoad)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { TextArea } = Input;
   const onFinish = (values) => {
+    dispatch({type: "LOAD_CHANGE", payload: true})
     api.editArticle(values, slug).then(() => {
       api.getArticles(page).then((articles) => {
         dispatch({ type: "ADD_ARTICLES", payload: articles });
-        navigate(`/${slug}`);
+        dispatch({type: "LOAD_CHANGE", payload: false})
+        navigate(`/articles/${slug}`);
       });
     });
   };
 
   return (
+    isLoad ? <Loader/> :
     <Form
       name="basic"
       className={styles.new_article}
