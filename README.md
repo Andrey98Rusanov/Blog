@@ -1,1 +1,1 @@
-[Версел](https://blog-two-jet-41.vercel.app/)
+[Версел](https://blog-andrey98rusanov.vercel.app/)
